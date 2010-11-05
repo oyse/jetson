@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?eclipse version="3.0"?>
+
+<plugin>
+
+  <extension point="org.eclipse.emf.ecore.generated_package">
+    <package 
+       uri = "http://www.dadacoalition.org/Json" 
+       class = "org.dadacoalition.json.JsonPackage"
+       genModel = "org/dadacoalition/Json.genmodel" /> 
+	
+  </extension>
+
+
+
+
+
+</plugin>

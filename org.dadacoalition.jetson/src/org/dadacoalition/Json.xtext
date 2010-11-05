@@ -1,0 +1,49 @@
+grammar org.dadacoalition.Json hidden(WS, ML_COMMENT, SL_COMMENT)
+
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
+
+generate json "http://www.dadacoalition.org/Json"
+
+JSONValue :
+    value=JSONObject |
+    value=JSONArray |
+    value=JSONString |
+    value=JSONNumber |
+    value=JSONBoolean |
+    value=JSONNull;
+
+JSONObject:
+    '{' {JSONObject} ( keys+=JSONString ':' values+=JSONValue (',' keys+=JSONString ':' values+=JSONValue )* )? '}';
+    
+JSONArray :
+    '[' {JSONArray} ( values+=JSONValue (',' values+=JSONValue )* )? ']';
+
+JSONString:
+    {JSONString} value=STRING;
+
+JSONNumber:
+    {JSONNumber} value=NUMBER;
+
+JSONBoolean:
+    {JSONBoolean} value=BOOLEAN;
+
+JSONNull:
+    {JSONNull} value=NULL;
+
+terminal NUMBER:
+    '-'? '0'|('1'.. '9' ('0'..'9')* ) ('.' ('0'..'9')+ )? ('e'|'E' ('-'|'+')? ('0'..'9')+ )?;
+
+terminal STRING returns ecore::EString: 
+            '"' ( '\\' ('b'|'t'|'n'|'f'|'r'|'"'|"'"|'\\'|('u' '0'..'9' '0'..'9' '0'..'9' '0'..'9')) | !('\\'|'"') )* '"';
+
+terminal BOOLEAN:
+    'true' | 'false';
+
+terminal NULL:
+    'null';
+    
+terminal ML_COMMENT : '/*' -> '*/';
+
+terminal SL_COMMENT     : '//' !('\n'|'\r')* ('\r'? '\n')?;
+
+terminal WS         : (' '|'\t'|'\r'|'\n')+;    

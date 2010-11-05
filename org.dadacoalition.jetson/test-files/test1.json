@@ -1,0 +1,74 @@
+[
+    {
+        "mandatory_version":"0.107",
+        "relationships":[
+            "requires"
+        ],
+        "name":"Test::Tester",
+        "children":[
+            
+        ],
+        "distribution":"F/FD/FDALY/Test-Tester-0.107.tar.gz",
+        "phases":[
+            "runtime"
+        ],
+        "required_versions":[
+            
+        ],
+        "parents":[
+            "Test::NoWarnings",
+            "Test::Deep"
+        ]
+    },
+    {
+        "mandatory_version":"1.02",
+        "relationships":[
+            "requires"
+        ],
+        "name":"Test::NoWarnings",
+        "children":[
+            "Test::Tester"
+        ],
+        "distribution":"A/AD/ADAMK/Test-NoWarnings-1.02.tar.gz",
+        "phases":[
+            "runtime"
+        ],
+        "required_versions":[
+            
+        ],
+        "parents":[
+            "Test::Deep"
+        ]
+    },
+    {
+        "mandatory_version":"0.108",
+        "relationships":[
+            "requires"
+        ],
+        "name":"Test::Deep",
+        "children":[
+            "Test::NoWarnings",
+            "Test::Tester"
+        ],
+        "distribution":"R/RJ/RJBS/Test-Deep-0.108.tar.gz",
+        "phases":[
+            "configure",
+            "build",
+            "test",
+            "runtime",
+            "develop"
+        ],
+        "required_versions":[
+            
+        ],
+        "parents":[
+            
+        ]
+    },
+    {
+    	"test" : false
+    },
+    {
+    	"tast" : null
+    }
+]
