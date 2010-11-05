@@ -17,7 +17,8 @@
         ],
         "parents":[
             "Test::NoWarnings",
-            "Test::Deep"
+            "Test::Deep",
+            { "test" : "bla" }
         ]
     },
     {

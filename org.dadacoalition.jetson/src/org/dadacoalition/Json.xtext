@@ -13,7 +13,10 @@ JSONValue :
     value=JSONNull;
 
 JSONObject:
-    '{' {JSONObject} ( keys+=JSONString ':' values+=JSONValue (',' keys+=JSONString ':' values+=JSONValue )* )? '}';
+    '{' {JSONObject} ( pairs+=JSONPair (',' pairs+=JSONPair )* )? '}';
+
+JSONPair:
+    key=JSONString ':' value=JSONValue;
     
 JSONArray :
     '[' {JSONArray} ( values+=JSONValue (',' values+=JSONValue )* )? ']';

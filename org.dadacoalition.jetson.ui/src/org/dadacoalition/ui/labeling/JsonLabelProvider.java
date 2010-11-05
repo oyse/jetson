@@ -37,6 +37,10 @@ public class JsonLabelProvider extends DefaultEObjectLabelProvider {
 		return element.getValue();
 	}
 	
+	String text(JSONPair element){
+		return element.getKey().getValue();
+	}
+	
 
 	
 /*
