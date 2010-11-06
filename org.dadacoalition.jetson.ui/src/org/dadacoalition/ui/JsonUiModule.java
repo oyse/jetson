@@ -4,12 +4,29 @@
 package org.dadacoalition.ui;
 
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
+import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 
 /**
  * Use this class to register components to be used within the IDE.
  */
 public class JsonUiModule extends org.dadacoalition.ui.AbstractJsonUiModule {
-	public JsonUiModule(AbstractUIPlugin plugin) {
-		super(plugin);
-	}
+    public JsonUiModule(AbstractUIPlugin plugin) {
+        super(plugin);
+    }
+
+    /**
+     * This "magical" invocation is what binds the lexical parser highlighter to
+     * the editor. Sure would be nice to actual understand what is going on, but
+     * is works. The information about how to do this was found here:
+     * http://dev.eclipse.org/newslists/news.eclipse.modeling.tmf/msg01226.html
+     */
+    public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
+        return JsonAntlrTokenToAttributeIdMapper.class;
+    }
+
+    public Class<? extends IHighlightingConfiguration> bindISemanticHighlightingConfiguration() {
+        return JsonHighlightingConfiguration.class;
+    }
+
 }
