@@ -3,7 +3,9 @@
  */
 package org.dadacoalition.ui;
 
+import org.dadacoalition.ui.outline.JsonTransformer;
 import org.eclipse.ui.plugin.AbstractUIPlugin;
+import org.eclipse.xtext.ui.editor.outline.transformer.ISemanticModelTransformer;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.IHighlightingConfiguration;
 import org.eclipse.xtext.ui.editor.syntaxcoloring.antlr.AbstractAntlrTokenToAttributeIdMapper;
 
@@ -21,12 +23,16 @@ public class JsonUiModule extends org.dadacoalition.ui.AbstractJsonUiModule {
      * is works. The information about how to do this was found here:
      * http://dev.eclipse.org/newslists/news.eclipse.modeling.tmf/msg01226.html
      */
-    public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
-        return JsonAntlrTokenToAttributeIdMapper.class;
-    }
-
-    public Class<? extends IHighlightingConfiguration> bindISemanticHighlightingConfiguration() {
-        return JsonHighlightingConfiguration.class;
-    }
+//    public Class<? extends AbstractAntlrTokenToAttributeIdMapper> bindTokenToAttributeIdMapper() {
+//        return JsonAntlrTokenToAttributeIdMapper.class;
+//    }
+//
+//    public Class<? extends IHighlightingConfiguration> bindISemanticHighlightingConfiguration() {
+//        return JsonHighlightingConfiguration.class;
+//    }
+//
+//    public Class<? extends ISemanticModelTransformer> bindISemanticModelTransformer(){
+//    	return JsonTransformer.class;
+//    }
 
 }

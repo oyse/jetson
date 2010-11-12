@@ -1,0 +1,9 @@
+{
+	"test" : "to",
+	"test2" : null,
+	"test3" : [ "ole", "per" ],
+	"test4" : true,
+	"test5" : false,
+	"test6" : 12343.3434,
+	"test7" : { "test1" : "ole" }
+}
