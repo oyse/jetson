@@ -1,7 +1,7 @@
 Manifest-Version: 1.0
 Bundle-ManifestVersion: 2
 Bundle-Name: org.dadacoalition.jetson.ui
-Bundle-Vendor: My Company
+Bundle-Vendor: dadacoalition.org
 Bundle-Version: 1.0.0
 Bundle-SymbolicName: org.dadacoalition.jetson.ui; singleton:=true
 Bundle-ActivationPolicy: lazy

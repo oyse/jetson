@@ -25,45 +25,45 @@ import org.eclipse.xtext.ui.editor.outline.transformer.AbstractDeclarativeSemant
  */
 public class JsonTransformer extends AbstractDeclarativeSemanticModelTransformer {
 
-//    /**
-//     * This method will be called by naming convention: - method name must be
-//     * createNode - first param: subclass of EObject - second param:
-//     * ContentOutlineNode
-//     */
+    /**
+     * This method will be called by naming convention: - method name must be
+     * createNode - first param: subclass of EObject - second param:
+     * ContentOutlineNode
+     */
 //    public ContentOutlineNode createNode(JSONString jsonString, ContentOutlineNode parentNode) {
 //        System.out.println("Create node " + jsonString);
 //        ContentOutlineNode node = super.newOutlineNode(jsonString, parentNode);
-//        node.setLabel("special " + node.getLabel());
+//        node.setLabel(node.getLabel());
 //        return node;
 //    }
-//
-//    public ContentOutlineNode createNode(JSONPair jsonPair, ContentOutlineNode parentNode) {
-//        ContentOutlineNode node = super.newOutlineNode(jsonPair, parentNode);
-//
-//        System.out.println("Create node " + jsonPair);
-//        if (this.hasComplexValue(jsonPair)) {
-//            node.setLabel(node.getLabel());
-//        } else {
-//            EObject value = ((JSONValue) jsonPair.getValue()).getValue();
-//            String valueLabel = "";
-//            if (value instanceof JSONString) {
-//                JSONString js = (JSONString) value;
-//                valueLabel = js.getValue();
-//            } else if (value instanceof JSONNumber) {
-//                JSONNumber jn = (JSONNumber) value;
-//                valueLabel = jn.getValue();
-//            } else if (value instanceof JSONBoolean) {
-//                JSONBoolean jb = (JSONBoolean) value;
-//                valueLabel = jb.getValue();
-//            } else if (value instanceof JSONNull) {
-//                JSONNull jn = (JSONNull) value;
-//                valueLabel = jn.getValue();
-//            }
-//
-//            node.setLabel(node.getLabel() + " : " + valueLabel);
-//        }
-//        return node;
-//    }
+
+    public ContentOutlineNode createNode(JSONPair jsonPair, ContentOutlineNode parentNode) {
+        ContentOutlineNode node = super.newOutlineNode(jsonPair, parentNode);
+
+        System.out.println("Create node " + jsonPair);
+        if (this.hasComplexValue(jsonPair)) {
+            node.setLabel(node.getLabel());
+        } else {
+            EObject value = ((JSONValue) jsonPair.getValue()).getValue();
+            String valueLabel = "";
+            if (value instanceof JSONString) {
+                JSONString js = (JSONString) value;
+                valueLabel = js.getValue();
+            } else if (value instanceof JSONNumber) {
+                JSONNumber jn = (JSONNumber) value;
+                valueLabel = jn.getValue();
+            } else if (value instanceof JSONBoolean) {
+                JSONBoolean jb = (JSONBoolean) value;
+                valueLabel = jb.getValue();
+            } else if (value instanceof JSONNull) {
+                JSONNull jn = (JSONNull) value;
+                valueLabel = jn.getValue();
+            }
+
+            node.setLabel(node.getLabel() + " : " + valueLabel);
+        }
+        return node;
+    }
 //
 //    public ContentOutlineNode createNode(JSONArray jsonArray, ContentOutlineNode parentNode){
 //        System.out.println("Create node " + jsonArray);
@@ -78,7 +78,7 @@ public class JsonTransformer extends AbstractDeclarativeSemanticModelTransformer
 //        node.setLabel(node.getLabel());
 //        return node;
 //    }
-//
+
 //    public ContentOutlineNode createNode(JSONValue jsonValue, ContentOutlineNode parentNode){
 //        System.out.println("Create node " + jsonValue);
 //        return createNode(jsonValue, parentNode);
@@ -98,39 +98,39 @@ public class JsonTransformer extends AbstractDeclarativeSemanticModelTransformer
 //        System.out.println("Create node " + jsonValue);
 //        return createNode(jsonValue, parentNode);
 //    }
-//    // public ContentOutlineNode createNode(
-//    // Property semanticNode, ContentOutlineNode parentNode) {
-//    // ContentOutlineNode node = super.newOutlineNode(semanticNode, parentNode);
-//    // node.setLabel("pimped " + node.getLabel());
-//    // return node;
-//    // }
-//
-//    /**
-//     * This method will be called by naming convention: - method name must be
-//     * getChildren - first param: subclass of EObject
-//     */
-//    // public List<EObject> getChildren(JSONString attribute) {
-//    // return attribute.eContents();
-//    // }
-//
+    // public ContentOutlineNode createNode(
+    // Property semanticNode, ContentOutlineNode parentNode) {
+    // ContentOutlineNode node = super.newOutlineNode(semanticNode, parentNode);
+    // node.setLabel("pimped " + node.getLabel());
+    // return node;
+    // }
+
+    /**
+     * This method will be called by naming convention: - method name must be
+     * getChildren - first param: subclass of EObject
+     */
+    // public List<EObject> getChildren(JSONString attribute) {
+    // return attribute.eContents();
+    // }
+
 //    public List<EObject> getChildren(JSONString jsonString) {
 //        System.out.println("JsonString");
 //        return NO_CHILDREN;
 //    }
-//
-//    public List<EObject> getChildren(JSONPair jsonPair) {
-//        System.out.println("JsonPair");
-//        if (this.hasComplexValue(jsonPair)) {
-//            EObject value = jsonPair.getValue().getValue();
-//            List<EObject> l = new ArrayList<EObject>();
-//            l.add(value);
-//            return l;
-//        }
-//
-//        return NO_CHILDREN;
-//
-//    }
-//
+
+    public List<EObject> getChildren(JSONPair jsonPair) {
+        System.out.println("JsonPair");
+        if (this.hasComplexValue(jsonPair)) {
+            EObject value = jsonPair.getValue().getValue();
+            List<EObject> l = new ArrayList<EObject>();
+            l.add(value);
+            return l;
+        }
+
+        return NO_CHILDREN;
+
+    }
+
 //    public List<EObject> getChildren(JSONArray jsonArray) {
 //        System.out.println("JsonArray Children");
 //        List<EObject> children = jsonArray.eContents();
@@ -172,17 +172,17 @@ public class JsonTransformer extends AbstractDeclarativeSemanticModelTransformer
 ////
 ////        return eobj_pairs;
 //    }
-//
-//    protected boolean hasComplexValue(JSONPair jsonPair) {
-//
-//        EObject value = jsonPair.getValue().getValue();
-//
-//        if (value instanceof JSONArray || value instanceof JSONObject) {
-//            return true;
-//        }
-//
-//        return false;
-//
-//    }
+
+    protected boolean hasComplexValue(JSONPair jsonPair) {
+
+        EObject value = jsonPair.getValue().getValue();
+
+        if (value instanceof JSONArray || value instanceof JSONObject) {
+            return true;
+        }
+
+        return false;
+
+    }
 
 }
