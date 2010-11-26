@@ -11,9 +11,9 @@ import org.eclipse.xtext.ui.editor.utils.TextStyle;
  * editor. It is the responsibility of the either lexical token scanner or
  * semantical highlighting calculator to match textual input to the categories
  * that are defined here.
- * 
+ *
  * @author oysteto
- * 
+ *
  */
 public class JsonHighlightingConfiguration implements IHighlightingConfiguration {
 
@@ -39,10 +39,13 @@ public class JsonHighlightingConfiguration implements IHighlightingConfiguration
     }
 
     public TextStyle stringStyle() {
-        TextStyle textStyle = defaultTextStyle().copy();
+        TextStyle textStyle = new TextStyle();
+        textStyle.setBackgroundColor(new RGB(255,255,255));
+        textStyle.setColor(new RGB(42,0,255));
+
         return textStyle;
     }
-    
+
     public TextStyle attributeStyle() {
         TextStyle textStyle = defaultTextStyle().copy();
         textStyle.setStyle(SWT.BOLD);
@@ -51,19 +54,21 @@ public class JsonHighlightingConfiguration implements IHighlightingConfiguration
 
     public TextStyle numStyle() {
         TextStyle textStyle = defaultTextStyle().copy();
-        textStyle.setStyle(SWT.BOLD);
         return textStyle;
     }
-    
+
     public TextStyle commentStyle() {
         TextStyle textStyle = defaultTextStyle().copy();
-        textStyle.setStyle(SWT.BOLD);
+        textStyle.setStyle(SWT.ITALIC);
+        textStyle.setColor(new RGB(100,100,100));
         return textStyle;
-    }    
+    }
 
     public TextStyle keywordStyle() {
         TextStyle textStyle = defaultTextStyle().copy();
+        textStyle.setColor(new RGB(127,0,85));
+        textStyle.setStyle(SWT.BOLD);
         return textStyle;
-    }   
+    }
 
 }
